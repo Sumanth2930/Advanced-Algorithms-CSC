@@ -6,9 +6,11 @@ int main()
     int n;
     int target;
 
+    //take input array size
     std::cout << "Enter the array size: " << std::endl;
     std::cin >> n;
 
+    //input array elements
     std::vector<int> input_array(n);
     std::cout << "Enter array elements: ";
     for (int i = 0; i < n; i++)
@@ -22,15 +24,17 @@ int main()
     {
         for (int j = i; j < n; j++)
         {
-            if (input_array[i] + input_array[j] == target)
+            //if sum of two value is equal to target
+            if (input_array[i] + input_array[j] == target) 
             {
                 std::cout << "[" << input_array[i] << "," << input_array[j] << "]";
                 i = n;
-                found = 1;
+                found = 1; //update pair found
                 break;
             }
         }
     }
+    //if no pair found
     if (!found)
     {
         std::cout << "Not found any pair";
