@@ -27,7 +27,7 @@ int main()
             //if sum of two value is equal to target
             if (input_array[i] + input_array[j] == target) 
             {
-                std::cout << "[" << input_array[i] << "," << input_array[j] << "]";
+                std::cout << "[" << i << "," << j << "]";
                 i = n;
                 found = 1; //update pair found
                 break;
