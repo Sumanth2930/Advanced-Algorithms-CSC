@@ -22,7 +22,7 @@ int main()
     int found = 0;
     for (int i = 0; i < n; i++)
     {
-        for (int j = i; j < n; j++)
+        for (int j = i+1; j < n; j++)
         {
             //if sum of two value is equal to target
             if (input_array[i] + input_array[j] == target) 
