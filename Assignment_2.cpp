@@ -3,13 +3,15 @@
 struct Sparse
 {
     int NumOfRows, NumOfCols, valCount;
-    int **nonZeroData; 
+    int **nonZeroData; // to store the non zero values in sparse matrix
 };
 
+// to save a non zero number
 void addNumber(Sparse &matrix, int row, int col, int value)
 {
     if (value != 0)
     {
+        // save row colummn and the value of non zero number
         matrix.nonZeroData[matrix.valCount][0] = row;
         matrix.nonZeroData[matrix.valCount][1] = col;
         matrix.nonZeroData[matrix.valCount][2] = value;
@@ -17,6 +19,7 @@ void addNumber(Sparse &matrix, int row, int col, int value)
     }
 }
 
+// get the value at a row and col of sparse matrix
 int getNumber(Sparse &matrix, int row, int col)
 {
     for (int i = 0; i < matrix.valCount; i++)
@@ -26,9 +29,10 @@ int getNumber(Sparse &matrix, int row, int col)
             return matrix.nonZeroData[i][2];
         }
     }
-    return 0; 
+    return 0;
 }
 
+// print sparse matrix
 void printMatrix(Sparse &matrix)
 {
     std::cout << "Sparse Matrix:" << std::endl;
@@ -55,11 +59,10 @@ int main()
     matrix.NumOfCols = cols;
     matrix.valCount = 0;
 
- 
     matrix.nonZeroData = new int *[rows * cols];
     for (int i = 0; i < rows * cols; i++)
     {
-        matrix.nonZeroData[i] = new int[3]; 
+        matrix.nonZeroData[i] = new int[3];
     }
 
     for (int i = 0; i < rows; i++)
@@ -74,13 +77,6 @@ int main()
     }
 
     printMatrix(matrix);
-
-    // de allocating memory
-    for (int i = 0; i < matrix.NumOfRows; i++)
-    {
-        delete[] matrix.nonZeroData[i];
-    }
-    delete[] matrix.nonZeroData;
 
     return 0;
 }
