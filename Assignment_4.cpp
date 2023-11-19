@@ -18,12 +18,13 @@ struct GraphNode {
 
 // DijkstraAlgo function, pass function and source and dest
 void DijkstraAlgo(const vector<vector<pair<int, int>>> &graph, int source, int destination) {
+    vector<int> distance(n, INT_MAX);
+    distance[source] = 0;
     int n = graph.size();
-    vector<int> distance(n, INT_MAX);   // Vector to store the minimum distance to reach each node
     vector<int> parent_node(n, -1);
     priority_queue<GraphNode, vector<GraphNode>, greater<GraphNode>> priorityQueue;
 
-    distance[source] = 0;
+    
     priorityQueue.push({source, 0});
 
     // Loop priority queue
@@ -55,8 +56,8 @@ void DijkstraAlgo(const vector<vector<pair<int, int>>> &graph, int source, int d
     cout << "Shortest Path from " << source << " to " << destination << ":\n";
     cout << "Cost: " << distance[destination] << "\nPath: ";
 
-    int i = destination;
     vector<int> pathTraversal;
+    int i = destination;
     while (i != -1) {
         pathTraversal.push_back(i);
         i = parent_node[i];
@@ -72,7 +73,6 @@ void DijkstraAlgo(const vector<vector<pair<int, int>>> &graph, int source, int d
 int main() {
     int numOfNodes;
 
-    // Prompting the user for the number of nodes
     cout << "Enter the number of nodes : ";
     cin >> numOfNodes;
 
@@ -109,15 +109,15 @@ int main() {
         }
     }
 
-    int start, end;
+    int  end,start;
 
     cout << "Enter the start node: ";
     cin >> start;
 
     cout << "Enter the end node: ";
     cin >> end;
-
-    DijkstraAlgo(graph, start, end); // Calling DijkstraAlgo's function
+//Dijkstra aglorithm 
+    DijkstraAlgo(graph, start, end); 
 
     return 0;
 }
