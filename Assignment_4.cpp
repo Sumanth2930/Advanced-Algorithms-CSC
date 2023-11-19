@@ -82,7 +82,7 @@ int main() {
     }
 
     vector<vector<pair<int, int>>> graph(numOfNodes);
-    cout << "If there is no connection enter -999:\n ";
+    cout << "If there is no connection enter -9999:\n ";
 
     // Letting the user to enter the weights between nodes
     for (int node1 = 0; node1 < numOfNodes; ++node1) {
@@ -92,7 +92,7 @@ int main() {
             cout << "Enter weight from node " << node1 << " to " << node2 << ": ";
             cin >> weightInBetween;
 
-            if (weightInBetween == -999) {
+            if (weightInBetween == -9999) {
                 continue;
             }
 
