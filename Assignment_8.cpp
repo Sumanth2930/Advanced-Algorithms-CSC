@@ -145,10 +145,9 @@ std::string fetchContent(const std::string& host, const std::string& path) {
 }
 
 int main() {
-    // Example usage
-    //std::string host_taken = "quod.lib.umich.edu";
+  
     std::string host_taken = "en.wikipedia.org";
-    //std::string path_taken = "/cgi/r/rsv/rsv-idx?type=DIV1&byte=4697892";
+   
     std::string path_taken = "/wiki/Wiki";
     std::string content_received = fetchContent(host_taken, path_taken);
 
